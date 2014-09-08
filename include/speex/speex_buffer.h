@@ -43,19 +43,19 @@ extern "C" {
 struct SpeexBuffer_;
 typedef struct SpeexBuffer_ SpeexBuffer;
 
-SpeexBuffer *speex_buffer_init(int size);
+PUBLIC_API SpeexBuffer *speex_buffer_init(int size);
 
-void speex_buffer_destroy(SpeexBuffer *st);
+PUBLIC_API void speex_buffer_destroy(SpeexBuffer *st);
 
-int speex_buffer_write(SpeexBuffer *st, void *data, int len);
+PUBLIC_API int speex_buffer_write(SpeexBuffer *st, void *data, int len);
 
-int speex_buffer_writezeros(SpeexBuffer *st, int len);
+PUBLIC_API int speex_buffer_writezeros(SpeexBuffer *st, int len);
 
-int speex_buffer_read(SpeexBuffer *st, void *data, int len);
+PUBLIC_API int speex_buffer_read(SpeexBuffer *st, void *data, int len);
 
-int speex_buffer_get_available(SpeexBuffer *st);
+PUBLIC_API int speex_buffer_get_available(SpeexBuffer *st);
 
-int speex_buffer_resize(SpeexBuffer *st, int len);
+PUBLIC_API int speex_buffer_resize(SpeexBuffer *st, int len);
 
 #ifdef __cplusplus
 }

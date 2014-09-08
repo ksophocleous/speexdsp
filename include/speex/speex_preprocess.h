@@ -62,28 +62,28 @@ typedef struct SpeexPreprocessState_ SpeexPreprocessState;
  * @param sampling_rate Sampling rate used for the input.
  * @return Newly created preprocessor state
 */
-SpeexPreprocessState *speex_preprocess_state_init(int frame_size, int sampling_rate);
+PUBLIC_API SpeexPreprocessState *speex_preprocess_state_init(int frame_size, int sampling_rate);
 
 /** Destroys a preprocessor state 
  * @param st Preprocessor state to destroy
 */
-void speex_preprocess_state_destroy(SpeexPreprocessState *st);
+PUBLIC_API void speex_preprocess_state_destroy(SpeexPreprocessState *st);
 
 /** Preprocess a frame 
  * @param st Preprocessor state
  * @param x Audio sample vector (in and out). Must be same size as specified in speex_preprocess_state_init().
  * @return Bool value for voice activity (1 for speech, 0 for noise/silence), ONLY if VAD turned on.
 */
-int speex_preprocess_run(SpeexPreprocessState *st, spx_int16_t *x);
+PUBLIC_API int speex_preprocess_run(SpeexPreprocessState *st, spx_int16_t *x);
 
 /** Preprocess a frame (deprecated, use speex_preprocess_run() instead)*/
-int speex_preprocess(SpeexPreprocessState *st, spx_int16_t *x, spx_int32_t *echo);
+PUBLIC_API int speex_preprocess(SpeexPreprocessState *st, spx_int16_t *x, spx_int32_t *echo);
 
 /** Update preprocessor state, but do not compute the output
  * @param st Preprocessor state
  * @param x Audio sample vector (in only). Must be same size as specified in speex_preprocess_state_init().
 */
-void speex_preprocess_estimate_update(SpeexPreprocessState *st, spx_int16_t *x);
+PUBLIC_API void speex_preprocess_estimate_update(SpeexPreprocessState *st, spx_int16_t *x);
 
 /** Used like the ioctl function to control the preprocessor parameters 
  * @param st Preprocessor state
@@ -91,7 +91,7 @@ void speex_preprocess_estimate_update(SpeexPreprocessState *st, spx_int16_t *x);
  * @param ptr Data exchanged to-from function
  * @return 0 if no error, -1 if request in unknown
 */
-int speex_preprocess_ctl(SpeexPreprocessState *st, int request, void *ptr);
+PUBLIC_API int speex_preprocess_ctl(SpeexPreprocessState *st, int request, void *ptr);
 
 
 

@@ -27,5 +27,12 @@
 #  define USE_KISS_FFT
 #endif
 
-/* We don't support visibility on Win32 */
-#define EXPORT
+#if !defined(LIBSPEEXDSP_DLL_EXPORT) && !defined(LIBSPEEXDSP_DLL_IMPORT)
+#  define EXPORT
+#else
+#  if defined(LIBSPEEXDSP_DLL_EXPORT)
+#    define EXPORT _declspec(dllexport)
+#  else
+#    define EXPORT _declspec(dllimport)
+#  endif
+#endif

@@ -48,6 +48,16 @@
      typedef unsigned __int16 spx_uint16_t;
 #  endif
 
+#  if !defined(LIBSPEEXDSP_DLL_EXPORT) && !defined(LIBSPEEXDSP_DLL_IMPORT)
+#    define PUBLIC_API
+#  else
+#    if defined(LIBSPEEXDSP_DLL_EXPORT)
+#      define PUBLIC_API _declspec(dllexport)
+#    else
+#      define PUBLIC_API _declspec(dllimport)
+#    endif
+#  endif
+
 #elif defined(__MACOS__)
 
 #  include <sys/types.h>
