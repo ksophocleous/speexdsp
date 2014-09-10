@@ -1,5 +1,5 @@
 
-option(LIBSPEEXDSP_BUILD_SHARED "Build shared version libspeexdsp" ON)
+option(BUILD_SHARED_LIBS "Build shared version libspeexdsp" ON)
 
 list(APPEND srcs
 	"buffer.c"
@@ -62,7 +62,7 @@ list(APPEND definitions
 	"_CRT_SECURE_NO_WARNINGS"
 	"LIBSPEEXDSP_EXPORT")
 
-if(LIBSPEEXDSP_BUILD_SHARED)
+if(BUILD_SHARED_LIBS)
 	set(LIBTYPE SHARED)
 	list(APPEND definitions "LIBSPEEXDSP_DLL_EXPORT")
 	list(APPEND public_definitions "LIBSPEEXDSP_DLL_IMPORT")
